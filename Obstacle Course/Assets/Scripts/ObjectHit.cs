@@ -6,7 +6,12 @@ public class ObectHit : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Im hit!");
         GetComponent<MeshRenderer>().material.color = Color.blue;
+
+        if (TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+        {
+            GetComponent<Rigidbody>().isKinematic = true;
+        }
+
     }
 }
