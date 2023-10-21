@@ -8,6 +8,7 @@ public class Dropper : MonoBehaviour
     MeshRenderer m_Renderer;
     Rigidbody m_rigidbody;
 
+    [SerializeField] bool _isTrigger;
     [SerializeField] float _secondsToDrop = 3f;
     public float _seconds;
 
@@ -19,6 +20,13 @@ public class Dropper : MonoBehaviour
 
         m_rigidbody.useGravity = false;
         m_Renderer.enabled = false;
+
+        if (_isTrigger)
+        {
+            gameObject.SetActive(false);
+        }
+
+
     }
 
     // Update is called once per frame
