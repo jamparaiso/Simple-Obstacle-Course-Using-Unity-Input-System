@@ -17,7 +17,7 @@ public class ObectHit : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            m_Renderer.material.color = Color.blue;
+            m_Renderer.material.color = Color.red;
             gameObject.tag = "Untagged";
         }
 
