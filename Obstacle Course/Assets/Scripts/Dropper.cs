@@ -5,21 +5,30 @@ using UnityEngine;
 
 public class Dropper : MonoBehaviour
 {
+    MeshRenderer m_Renderer;
+    Rigidbody m_rigidbody;
+
+    [SerializeField] float _secondsToDrop = 3f;
     public float _seconds;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_Renderer = GetComponent<MeshRenderer>();
+        m_rigidbody = GetComponent<Rigidbody>();
+
+        m_rigidbody.useGravity = false;
+        m_Renderer.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         _seconds = Time.time % 60f;
-        if (_seconds >= 3f)
+        if (_seconds >= _secondsToDrop)
         {
-            GetComponent<Rigidbody>().useGravity = true;
+            m_rigidbody.useGravity = true;
+            m_Renderer.enabled = true;
         }
 
     }

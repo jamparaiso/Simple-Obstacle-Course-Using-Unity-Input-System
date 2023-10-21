@@ -18,6 +18,8 @@ public class Mover : MonoBehaviour
 
     [SerializeField] private float speed;
     private float _currenVelocity;
+
+    float yPos;
     
     private void Awake()
     {
@@ -34,6 +36,7 @@ public class Mover : MonoBehaviour
         transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
 
         _characterController.Move(_direction * speed * Time.deltaTime);
+
     }
     public void Move(InputAction.CallbackContext context)
     {
@@ -41,5 +44,6 @@ public class Mover : MonoBehaviour
 
         // instead of moving to y axis, we move to z axis
         _direction = new Vector3(_input.x,0f,_input.y);
+
     }
 }
