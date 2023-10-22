@@ -6,6 +6,8 @@ public class PlayerLife : MonoBehaviour
 {
     [SerializeField] int _playerLife;
 
+    public GameOverScreen gameOverScreen;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "interactable")
@@ -16,8 +18,9 @@ public class PlayerLife : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                gameOverScreen.Setup("Game Over");
                 Debug.Log("Game Over!");
+                Destroy(gameObject);
             }
         }
 
