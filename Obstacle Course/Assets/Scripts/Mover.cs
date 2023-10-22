@@ -26,6 +26,11 @@ public class Mover : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
     }
 
+    private void Start()
+    {
+        Debug.Log("Avoid obstacles! move using WASD keys");
+    }
+
     private void Update()
     {
         // prevents the player 
